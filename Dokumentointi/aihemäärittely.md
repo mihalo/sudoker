@@ -5,4 +5,9 @@
 
 **Käyttäjät:** Pelaaja
 
-**Käyttäjän toiminnot:** Pelin pelaaminen
+**Pelaajan toiminnot:**
+* Uuden pelin aloittaminen
+* Pelin lopettaminen (Tappio, häviö, luovutus)
+* Numeron asettaminen ruutuun
+* Numeron poistaminen ruudusta
+ 
