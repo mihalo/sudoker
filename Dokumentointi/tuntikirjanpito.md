@@ -1,1 +1,1 @@
-14.01.2014	Projektin aloitus
+14.01.2014	1h	Projektin aloitus
