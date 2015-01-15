@@ -10,5 +10,5 @@
 * Pelin lopettaminen (Tappio, häviö, luovutus)
 * Numeron asettaminen ruutuun
 * Numeron poistaminen ruudusta
-* Vihjeet pyytäminen
+* Vihjeet pyytäminena
  
