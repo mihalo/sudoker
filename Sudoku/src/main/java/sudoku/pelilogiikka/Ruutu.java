@@ -12,9 +12,16 @@ public class Ruutu {
         return arvo;
     }
 
-    public void setArvo(int arvo) {
-        if (arvo > 0 && arvo < 10) {
+    public boolean tarkistaNumero(int numero) {
+        return numero < 10 && numero > 0;
+    }
+
+    public boolean setArvo(int arvo) {
+        if (tarkistaNumero(arvo)) {
             this.arvo = arvo;
+            return true;
+        } else {
+            return false;
         }
     }
 
