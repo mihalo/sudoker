@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import sudoku.kayttoliittyma.Kayttoliittyma;
 import sudoku.pelilogiikka.Pelialue;
+import sudoku.pelilogiikka.Ruutu;
+import sudoku.pelilogiikka.Tarkastaja;
 
 public class Popupkuuntelija implements ActionListener {
 
@@ -22,6 +24,7 @@ public class Popupkuuntelija implements ActionListener {
     private JButton[][] ruudut;
     private Pelialue pelialue;
     private Pelikenttakuuntelija pelikenttakuuntelija;
+    private Tarkastaja tarkastaja = new Tarkastaja();
 
     public Popupkuuntelija(Kayttoliittyma kali, JButton[][] ruudut, Pelialue pelialue, Pelikenttakuuntelija pelikenttakuuntelija) {
         this.kali = kali;
@@ -35,12 +38,13 @@ public class Popupkuuntelija implements ActionListener {
         JMenuItem c = (JMenuItem) e.getSource();
         JPopupMenu popup = (JPopupMenu) c.getParent();
         JButton button = (JButton) popup.getInvoker();
-        
+
         int[] kordinaatit = kordinaatit(button);
         ruudut[kordinaatit[0]][kordinaatit[1]].setText(c.getText());
         pelialue.asetaNumero(kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
-        ArrayDeque<Integer> kohdat = pelialue.tarkistaSiirto(kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
-        pelikenttakuuntelija.paivita(ruudut, pelialue, !kohdat.isEmpty(), kohdat);
+//        ArrayDeque<Integer> kohdat = pelialue.tarkistaSiirto(kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
+        ArrayList<Ruutu> vaarat = tarkastaja.tarkistaSiirto(pelialue, kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
+        pelikenttakuuntelija.paivita(ruudut, pelialue, vaarat);
 
         
     }

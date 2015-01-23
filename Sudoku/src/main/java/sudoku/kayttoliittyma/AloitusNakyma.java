@@ -41,27 +41,20 @@ public class AloitusNakyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.setLayout(new GridLayout(2, 1));
-        container.add(lisaaAloitusTeksti());
         container.add(lisaaAloitusNapit());
-    }
-
-    private JPanel lisaaAloitusTeksti() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        Font fontti = new Font("Arial", Font.BOLD, 42);
-        JLabel sudoku = new JLabel("SUDOKU");
-        sudoku.setFont(fontti);
-        panel.add(sudoku);
-        return panel;
     }
 
     private JPanel lisaaAloitusNapit() {
         JPanel panel = new JPanel();
-        panel.add(new JButton("Helppo"));
-        panel.add(new JButton("Keskitaso"));
-        panel.add(new JButton("Vaikea"));
-//                helppo.addActionListener(new AloitusnakymanKuuntelija(helppo, kali));
+        JButton helppo = new JButton("Helppo");
+        panel.add(helppo);
+        JButton keskitaso = new JButton("Keskitaso");
+        panel.add(keskitaso);
+        JButton vaikea = new JButton("Vaikea");
+        panel.add(vaikea);
+        helppo.addActionListener(new AloitusnakymanKuuntelija(helppo, keskitaso, vaikea, kali));
+        keskitaso.addActionListener(new AloitusnakymanKuuntelija(helppo, keskitaso, vaikea, kali));
+        vaikea.addActionListener(new AloitusnakymanKuuntelija(helppo, keskitaso, vaikea, kali));
         return panel;
     }
 

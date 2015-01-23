@@ -16,10 +16,38 @@ public class Pelialue {
     private void alustaTaulukot() {
         for (int rivi = 0; rivi < ruudukko.length; rivi++) {
             for (int sarake = 0; sarake < ruudukko.length; sarake++) {
-                ruudukko[rivi][sarake] = new Ruutu();
-                ratkaistuRuudukko[rivi][sarake] = new Ruutu();
+                ruudukko[rivi][sarake] = new Ruutu(0, rivi, sarake);
+                ratkaistuRuudukko[rivi][sarake] = new Ruutu(0, rivi, sarake);
             }
         }
+    }
+
+    public ArrayList<Ruutu> rivinRuudut(int rivi) {
+        ArrayList<Ruutu> ruudut = new ArrayList();
+        for (int sarake = 0; sarake < 9; sarake++) {
+            ruudut.add(ruudukko[rivi][sarake]);
+        }
+        return ruudut;
+    }
+
+    public ArrayList<Ruutu> sarakkeenRuudut(int sarake) {
+        ArrayList<Ruutu> ruudut = new ArrayList();
+        for (int rivi = 0; rivi < 9; rivi++) {
+            ruudut.add(ruudukko[rivi][sarake]);
+        }
+        return ruudut;
+    }
+
+    public ArrayList<Ruutu> osaruudukonRuudut(int rivi, int sarake) {
+        ArrayList<Ruutu> numerot = new ArrayList();
+        for (int i = vasenYlakulma(rivi); i < vasenYlakulma(rivi) + 3; i++) {
+            for (int j = vasenYlakulma(sarake); j < vasenYlakulma(sarake) + 3; j++) {
+                if (!ruudukko[i][j].vapaa()) {
+                    numerot.add(ruudukko[i][j]);
+                }
+            }
+        }
+        return numerot;
     }
 
     public void asetaNumerot(int[] numerot) {
@@ -63,6 +91,7 @@ public class Pelialue {
                 return false;
             }
         }
+
         return true;
     }
 
@@ -146,41 +175,14 @@ public class Pelialue {
         return tarkistaRivit() && tarkistaSarakkeet() && tarkistaOsaruudukot();
     }
 
-//    public void tulostaPelialue() {
-//        for (int i = 0; i < ruudukko.length; i++) {
-//            for (int j = 0; j < ruudukko.length; j++) {
-//                if (j == 2 || j == 5) {
-//                    System.out.print(ruudukko[i][j].getArvo() + "|");
-//                } else {
-//                    System.out.print(ruudukko[i][j].getArvo() + " ");
-//                }
-//            }
-//
-//            if (i == 2 || i == 5) {
-//                System.out.println("\n–––––––––––––––––");
-//            } else {
-//                System.out.println();
-//            }
-//
-//        }
-//        System.out.println("");
-//        for (int i = 0; i < ruudukko.length; i++) {
-//            for (int j = 0; j < ruudukko.length; j++) {
-//                if (j == 2 || j == 5) {
-//                    System.out.print(ratkaistuRuudukko[i][j].getArvo() + "|");
-//                } else {
-//                    System.out.print(ratkaistuRuudukko[i][j].getArvo() + " ");
-//                }
-//            }
-//
-//            if (i == 2 || i == 5) {
-//                System.out.println("\n–––––––––––––––––");
-//            } else {
-//                System.out.println();
-//            }
-//
-//        }
-//    }
+    public void tulostaPelialue() {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(ruudukko[i][j].getArvo());
+            }
+        }
+    }
+
     public boolean asetaNumero(int rivi, int sarake, int numero) {
         if (tarkistaIndeksi(rivi) || tarkistaIndeksi(sarake)) {
             return false;
@@ -195,6 +197,9 @@ public class Pelialue {
     }
 
     public ArrayDeque<Integer> tarkistaSiirto(int rivi, int sarake, int numero) {
+        if (numero == 0) {
+            return new ArrayDeque();
+        }
         if (tarkistaNumero(numero) || tarkistaIndeksi(rivi) || tarkistaIndeksi(sarake)) {
             return new ArrayDeque();
         }
@@ -296,5 +301,18 @@ public class Pelialue {
 
     public int getRatkaisu(int rivi, int sarake) {
         return ratkaistuRuudukko[rivi][sarake].getArvo();
+    }
+
+    public int[] vihje() {
+        ArrayList<int[]> tyhjatPaikat = new ArrayList();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (ruudukko[i][j].vapaa()) {
+                    tyhjatPaikat.add(new int[]{i, j});
+                }
+            }
+        }
+        Collections.shuffle(tyhjatPaikat);
+        return tyhjatPaikat.get(0);
     }
 }

@@ -31,11 +31,13 @@ public class UusiPeliNakyma implements Runnable {
     private JButton uusiPeli;
     private JButton tyhjenna;
     private JButton ratkaise;
+    private int vaikeustaso;
+    private JButton vihje;
 
-    public UusiPeliNakyma(Kayttoliittyma kali) {
+    public UusiPeliNakyma(Kayttoliittyma kali, int vaikeustaso) {
         this.kali = kali;
         this.frame = kali.getFrame();
-
+        this.vaikeustaso = vaikeustaso;
     }
 
     @Override
@@ -54,7 +56,7 @@ public class UusiPeliNakyma implements Runnable {
     }
 
     private void luoPelialue() {
-        pohjageneraattori = new Pohjageneraattori();
+        pohjageneraattori = new Pohjageneraattori(vaikeustaso);
         this.pelialue = pohjageneraattori.getPelialue();
     }
 
@@ -83,7 +85,7 @@ public class UusiPeliNakyma implements Runnable {
         }
 
         paneeli.add(luoValikko());
-        lisaaKuuntelija(new Pelikenttakuuntelija(kali, ruudut, pelialue, tyhjenna, ratkaise, uusiPeli));
+        lisaaKuuntelija(new Pelikenttakuuntelija(kali, ruudut, pelialue, tyhjenna, ratkaise, uusiPeli, vihje));
 
         return paneeli;
     }
@@ -97,6 +99,7 @@ public class UusiPeliNakyma implements Runnable {
         this.tyhjenna.addMouseListener(kuuntelija);
         this.ratkaise.addMouseListener(kuuntelija);
         this.uusiPeli.addMouseListener(kuuntelija);
+        this.vihje.addMouseListener(kuuntelija);
     }
 
     private int ylaReuna(int n) {
@@ -137,6 +140,8 @@ public class UusiPeliNakyma implements Runnable {
         panel.add(tyhjenna);
         ratkaise = new JButton("Ratkaise");
         panel.add(ratkaise);
+        vihje = new JButton("Vihje");
+        panel.add(vihje);
 
         return panel;
     }

@@ -15,14 +15,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import javax.swing.JRootPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import sudoku.kayttoliittyma.Kayttoliittyma;
 import sudoku.kayttoliittyma.UusiPeliNakyma;
 import sudoku.pelilogiikka.Pelialue;
+import sudoku.pelilogiikka.Ruutu;
+import sudoku.pelilogiikka.Tarkastaja;
 
 public class Pelikenttakuuntelija implements MouseListener {
-    
+
     private Kayttoliittyma kali;
     private JButton[][] ruudut;
     private Pelialue pelialue;
@@ -31,18 +34,21 @@ public class Pelikenttakuuntelija implements MouseListener {
     private JButton tyhjenna;
     private JButton ratkaise;
     private JButton uusiPeli;
-    
+    private JButton vihje;
+    private Tarkastaja tarkastaja = new Tarkastaja();
+
     public Pelikenttakuuntelija(Kayttoliittyma kali, JButton[][] ruudut,
-            Pelialue pelialue, JButton tyhjenna, JButton ratkaise, JButton uusiPeli) {
+            Pelialue pelialue, JButton tyhjenna, JButton ratkaise, JButton uusiPeli, JButton vihje) {
         this.kali = kali;
         this.ruudut = ruudut;
         this.pelialue = pelialue;
         this.tyhjenna = tyhjenna;
         this.ratkaise = ratkaise;
         this.uusiPeli = uusiPeli;
+        this.vihje = vihje;
         luoPopupMenu();
     }
-    
+
     public void luoPopupMenu() {
         popup = new JPopupMenu("Menu");
         popupkuuntelija = new Popupkuuntelija(kali, ruudut, pelialue, this);
@@ -50,9 +56,9 @@ public class Pelikenttakuuntelija implements MouseListener {
             JMenuItem b = new JMenuItem("" + i);
             popup.add(b);
             b.addActionListener(popupkuuntelija);
-        }      
+        }
     }
-    
+
     @Override
     public void mouseReleased(MouseEvent me) {
         JButton nappi = (JButton) me.getSource();
@@ -61,21 +67,36 @@ public class Pelikenttakuuntelija implements MouseListener {
         } else if (nappi.getText().equals("Ratkaise")) {
             ratkaise();
         } else if (nappi.getText().equals("Uusi peli")) {
-            System.out.println("Uusi peli");
-        }else if (nappi.isEnabled()) {
+            aloitaUusiPeli();
+        } else if (nappi.getText().equals("Vihje")) {
+            vihje();
+        } else if (nappi.isEnabled()) {
             popup.show((Component) me.getSource(), me.getX(), me.getY());
+        } else {
+            System.out.println("yolo");
         }
     }
-    
+
+    public void vihje() {
+        paivita(ruudut, pelialue, null);
+        int[] paikka = pelialue.vihje();
+        ruudut[paikka[0]][paikka[1]].setEnabled(false);
+        ruudut[paikka[0]][paikka[1]].setText("" + pelialue.getRatkaisu(paikka[0], paikka[1]));
+        ruudut[paikka[0]][paikka[1]].setBackground(Color.GREEN);
+        pelialue.asetaNumero(paikka[0], paikka[1], pelialue.getRatkaisu(paikka[0], paikka[1]));
+    }
+
     public void ratkaise() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 ruudut[i][j].setEnabled(false);
-                ruudut[i][j].setText(""+pelialue.getRatkaisu(i, j));
+                ruudut[i][j].setText("" + pelialue.getRatkaisu(i, j));
+                pelialue.asetaNumero(i, j, pelialue.getRatkaisu(i, j));
             }
         }
+        paivita(ruudut, pelialue, new ArrayList());
     }
-    
+
     public void tyhjenna() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -87,44 +108,45 @@ public class Pelikenttakuuntelija implements MouseListener {
         }
         asetaValkoinenKaikille();
     }
-    
-    public void paivita(JButton[][] r, Pelialue p, boolean vaara, ArrayDeque<Integer> kohdat) {
+
+    public void paivita(JButton[][] r, Pelialue p, ArrayList<Ruutu> vaarat) {
         this.ruudut = r;
         this.pelialue = p;
-        if (vaara) {
-            while (!kohdat.isEmpty()) {
-                int x = kohdat.pollFirst();
-                int y = kohdat.pollFirst();
-                ruudut[x][y].setBackground(Color.RED);
+        if (vaarat != null || !vaarat.isEmpty()) {
+            for (Ruutu v : vaarat) {
+                ruudut[v.getRivi()][v.getSarake()].setBackground(Color.red);
             }
         } else {
             asetaValkoinenKaikille();
         }
-        
-        if (pelialue.tarkista()) {
+
+        if (tarkastaja.tarkasta(pelialue)) {
             peliPaattyi();
         }
+
     }
-    
+
     private void peliPaattyi() {
         JOptionPane pane = new JOptionPane("Peli päättyi onnistuneesti!\nVoit joko sulkea pelin tai aloittaa uuden pelin.");
         Object[] options = new String[]{"Aloita uusi peli", "Sulje"};
         pane.setOptions(options);
-        JDialog dialog = pane.createDialog(new JFrame(), "Dilaog");
+        JDialog dialog = pane.createDialog(new JFrame(), "");
         dialog.show();
-        Object obj = pane.getValue().toString();
-        if (obj.equals("Sulje")) {
-            System.exit(0);
-        } else {
-            aloitaUusiPeli();
+        if (pane.getValue() != null) {
+            Object obj = pane.getValue().toString();
+            if (obj.equals("Sulje")) {
+                System.exit(0);
+            } else {
+                aloitaUusiPeli();
+            }
         }
     }
-    
+
     private void aloitaUusiPeli() {
-        UusiPeliNakyma uusipeli = new UusiPeliNakyma(kali);
-        SwingUtilities.invokeLater(uusipeli);
+        Kayttoliittyma r = new Kayttoliittyma();
+        SwingUtilities.invokeLater(r);
     }
-    
+
     private void asetaValkoinenKaikille() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -132,21 +154,21 @@ public class Pelikenttakuuntelija implements MouseListener {
             }
         }
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent me) {
     }
-    
+
     @Override
     public void mousePressed(MouseEvent me) {
     }
-    
+
     @Override
     public void mouseEntered(MouseEvent me) {
     }
-    
+
     @Override
     public void mouseExited(MouseEvent me) {
     }
-    
+
 }

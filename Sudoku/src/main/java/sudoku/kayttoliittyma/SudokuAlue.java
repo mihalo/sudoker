@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -14,6 +15,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import sudoku.pelilogiikka.Pelialue;
+import sudoku.pelilogiikka.Ruutu;
 
 public class SudokuAlue extends JPanel {
 
@@ -35,9 +37,10 @@ public class SudokuAlue extends JPanel {
         JPanel panel = new JPanel(new GridLayout(3, 3, 2, 2));
         panel.setBorder(new CompoundBorder(new LineBorder(Color.DARK_GRAY, 2), new EmptyBorder(2, 2, 2, 2)));
 
-        ArrayDeque<Integer> numerot = pelialue.numerotOsaruudukosta(x, y);
+//        ArrayDeque<Integer> numerot = pelialue.numerotOsaruudukosta(x, y);
+        ArrayList<Ruutu> ruudut = pelialue.osaruudukonRuudut(x, y);
         for (int i = 0; i < 9; i++) {
-            final JButton b = new JButton("" + numerot.pollFirst());
+            final JButton b = new JButton("" + ruudut.get(i).getArvo());
             b.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
