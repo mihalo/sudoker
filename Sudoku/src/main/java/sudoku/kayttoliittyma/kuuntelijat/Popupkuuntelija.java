@@ -43,12 +43,14 @@ public class Popupkuuntelija implements ActionListener {
         ruudut[kordinaatit[0]][kordinaatit[1]].setText(c.getText());
         pelialue.asetaNumero(kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
 //        ArrayDeque<Integer> kohdat = pelialue.tarkistaSiirto(kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
-        ArrayList<Ruutu> vaarat = tarkastaja.tarkistaSiirto(pelialue, kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
+        ArrayList<Ruutu> vaarat = new ArrayList();
+        if (pelialue.getRatkaisu(kordinaatit[0], kordinaatit[1]) != Integer.parseInt(c.getText()) && Integer.parseInt(c.getText()) != 0) {
+            vaarat = tarkastaja.tarkistaSiirto(pelialue, kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
+        }
         pelikenttakuuntelija.paivita(ruudut, pelialue, vaarat);
 
-        
     }
-    
+
     public int[] kordinaatit(JButton nappi) {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {

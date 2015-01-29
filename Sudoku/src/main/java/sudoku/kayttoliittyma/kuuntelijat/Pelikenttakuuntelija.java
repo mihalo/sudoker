@@ -72,13 +72,11 @@ public class Pelikenttakuuntelija implements MouseListener {
             vihje();
         } else if (nappi.isEnabled()) {
             popup.show((Component) me.getSource(), me.getX(), me.getY());
-        } else {
-            System.out.println("yolo");
         }
     }
 
     public void vihje() {
-        paivita(ruudut, pelialue, null);
+        paivita(ruudut, pelialue, new ArrayList());
         int[] paikka = pelialue.vihje();
         ruudut[paikka[0]][paikka[1]].setEnabled(false);
         ruudut[paikka[0]][paikka[1]].setText("" + pelialue.getRatkaisu(paikka[0], paikka[1]));
@@ -112,8 +110,9 @@ public class Pelikenttakuuntelija implements MouseListener {
     public void paivita(JButton[][] r, Pelialue p, ArrayList<Ruutu> vaarat) {
         this.ruudut = r;
         this.pelialue = p;
-        if (vaarat != null || !vaarat.isEmpty()) {
+        if (!vaarat.isEmpty()) {
             for (Ruutu v : vaarat) {
+                System.out.println(v);
                 ruudut[v.getRivi()][v.getSarake()].setBackground(Color.red);
             }
         } else {
