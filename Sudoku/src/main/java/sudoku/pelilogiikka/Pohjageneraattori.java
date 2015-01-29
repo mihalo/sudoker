@@ -5,24 +5,21 @@ import java.util.*;
 public class Pohjageneraattori {
 
     private Pelialue p;
-    private int maara;
+    public int maara;
     private ArrayList<int[]> vapaatPaikat;
-    private Tarkastaja tarkastaja = new Tarkastaja();
+    private final Tarkastaja tarkastaja = new Tarkastaja();
 
     public Pohjageneraattori(int vaikeustaso) {
         vaikeustaso(vaikeustaso);
-        this.p.tulostaPelialue();
     }
 
-    public void vaikeustaso(int vaikeustaso) {
+    private void vaikeustaso(int vaikeustaso) {
         if (vaikeustaso == 1) {
             luoPohja(32);
         } else if (vaikeustaso == 2) {
             luoPohja(25);
         } else if (vaikeustaso == 3) {
             luoPohjaVaikea();
-        } else {
-
         }
     }
 
@@ -72,7 +69,7 @@ public class Pohjageneraattori {
         }
     }
 
-    public void luoPohjaVaikea() {
+    private void luoPohjaVaikea() {
         this.p = new Pelialue();
         alustaVapaatPaikat();
         for (int i = 0; i < 9; i += 2) {
@@ -102,23 +99,7 @@ public class Pohjageneraattori {
         }
     }
 
-    private ArrayList<Integer> kaytettavatNumerot(int rivi, int sarake) {
-        ArrayList<Integer> kaytettavat = new ArrayList();
-        for (int j = 1; j < 10; j++) {
-            kaytettavat.add(j);
-        }
-        TreeSet<Integer> numerot = new TreeSet();
-        numerot.addAll(p.rivinNumerot(rivi));
-        numerot.addAll(p.sarakkeenNumerot(sarake));
-        numerot.addAll(p.osaruudukonNumerot(rivi, sarake));
-        kaytettavat.removeAll(numerot);
-
-//        Collections.shuffle(kaytettavat);
-
-        return kaytettavat;
-    }
-
-    private void ratkaisija() {
+    public void ratkaisija() {
         maara = 0;
         ratkaise(0, 0);
     }
@@ -134,9 +115,8 @@ public class Pohjageneraattori {
         if (!p.ruutu(rivi, sarake).vapaa()) {
             taytaRuudukko(sarake == 8 ? (rivi + 1) : rivi, (sarake + 1) % 9, raja);
         } else {
-//            ArrayList<Integer> kaytettavat = kaytettavatNumerot(rivi, sarake);
             ArrayList<Integer> kaytettavat = tarkastaja.kaytettavatNumerot(p, rivi, sarake);
-            for (Integer kaytettavat1 : kaytettavatNumerot(rivi, sarake)) {
+            for (Integer kaytettavat1 : kaytettavat) {
                 if (tarkastaja.tarkistaSiirto(p,rivi,sarake,kaytettavat1).isEmpty()) {
                     p.asetaNumero(rivi, sarake, kaytettavat1);
                     ratkaisija();
@@ -150,7 +130,7 @@ public class Pohjageneraattori {
         }
     }
 
-    public void ratkaise(int rivi, int sarake) {
+    private void ratkaise(int rivi, int sarake) {
         if (maara > 1) {
             return;
         }
@@ -161,10 +141,9 @@ public class Pohjageneraattori {
         if (!p.ruutu(rivi, sarake).vapaa()) {
             ratkaise(sarake == 8 ? (rivi + 1) : rivi, (sarake + 1) % 9);
         } else {
-//            ArrayList<Integer> kaytettavat = kaytettavatNumerot(rivi, sarake);
             ArrayList<Integer> kaytettavat = tarkastaja.kaytettavatNumerot(p, rivi, sarake);
-            for (int i = 0; i < kaytettavat.size(); i++) {
-                p.asetaNumero(rivi, sarake, kaytettavat.get(i));
+            for (Integer kaytettavat1 : kaytettavat) {
+                p.asetaNumero(rivi, sarake, kaytettavat1);
                 ratkaise(sarake == 8 ? (rivi + 1) : rivi, (sarake + 1) % 9);
                 p.tyhjennaRuutu(rivi, sarake);
             }

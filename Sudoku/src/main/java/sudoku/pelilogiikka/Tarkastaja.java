@@ -3,14 +3,15 @@ package sudoku.pelilogiikka;
 import java.util.*;
 
 public class Tarkastaja {
-
+    
     public boolean tarkasta(Pelialue pelialue) {
         return tarkistaRivit(pelialue) && tarkistaSarakkeet(pelialue) && tarkistaOsaruudukot(pelialue);
     }
 
-    public boolean tarkistaNumerot(TreeSet<Integer> numerot) {
+    private boolean tarkistaNumerot(TreeSet<Integer> numerot) {
         return numerot.size() == 9;
     }
+    
 
     public TreeSet<Integer> ruudutNumeroiksi(ArrayList<Ruutu> ruudut) {
         TreeSet<Integer> numerot = new TreeSet();
@@ -19,7 +20,7 @@ public class Tarkastaja {
         }
         return numerot;
     }
-
+    
     private boolean tarkistaRivit(Pelialue pelialue) {
         for (int i = 0; i < 9; i++) {
             if (!tarkistaNumerot(ruudutNumeroiksi(pelialue.rivinRuudut(i)))) {
@@ -57,7 +58,7 @@ public class Tarkastaja {
         return !(indeksi > 8 || indeksi < 0);
     }
 
-    public ArrayList<Ruutu> tarkistaSamatNumerot(ArrayList<Ruutu> ruudut, int numero) {
+    private ArrayList<Ruutu> tarkistaSamatNumerot(ArrayList<Ruutu> ruudut, int numero) {
         ArrayList<Ruutu> vaarat = new ArrayList();
         for (Ruutu r : ruudut) {
             if (r.getArvo() == numero) {
@@ -68,9 +69,6 @@ public class Tarkastaja {
     }    
 
     public ArrayList<Ruutu> tarkistaSiirto(Pelialue pelialue, int rivi, int sarake, int numero) {
-//        if (tarkastaNumero(numero) || tarkastaIndeksi(rivi) || tarkastaIndeksi(sarake)) {
-//            return new ArrayList();
-//        }
         ArrayList<Ruutu> vaarat = new ArrayList();
         vaarat.addAll(tarkistaSamatNumerot(pelialue.rivinRuudut(rivi), numero));
         vaarat.addAll(tarkistaSamatNumerot(pelialue.sarakkeenRuudut(sarake), numero));
@@ -83,7 +81,7 @@ public class Tarkastaja {
         for (int i = 1; i <= 9; i++) {
             numerot.add(i);
         }
-        ArrayList<Integer> kaytettavat = new ArrayList();
+        TreeSet<Integer> kaytettavat = new TreeSet();
         kaytettavat.addAll(ruudutNumeroiksi(pelialue.rivinRuudut(rivi)));
         kaytettavat.addAll(ruudutNumeroiksi(pelialue.sarakkeenRuudut(sarake)));
         kaytettavat.addAll(ruudutNumeroiksi(pelialue.osaruudukonRuudut(rivi, sarake)));

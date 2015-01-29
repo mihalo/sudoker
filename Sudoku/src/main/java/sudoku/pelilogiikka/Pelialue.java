@@ -60,15 +60,11 @@ public class Pelialue {
         }
     }
 
-    public boolean tarkistaIndeksi(int indeksi) {
+    private boolean tarkistaIndeksi(int indeksi) {
         return indeksi > 8 || indeksi < 0;
     }
 
-    public boolean tarkistaNumero(int numero) {
-        return numero > 9 || numero < 0;
-    }
-
-    public TreeSet<Integer> rivinNumerotApu(int rivi) {
+    private TreeSet<Integer> rivinNumerotApu(int rivi) {
         TreeSet<Integer> numerot = new TreeSet();
         for (int i = 0; i < ruudukko.length; i++) {
             if (!ruudukko[rivi][i].vapaa()) {
@@ -83,16 +79,6 @@ public class Pelialue {
             return new TreeSet();
         }
         return rivinNumerotApu(rivi);
-    }
-
-    public boolean tarkistaRivit() {
-        for (int rivi = 0; rivi < 9; rivi++) {
-            if (rivinNumerot(rivi).size() != 9) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     public TreeSet<Integer> sarakkeenNumerotApu(int sarake) {
@@ -110,15 +96,6 @@ public class Pelialue {
             return new TreeSet();
         }
         return sarakkeenNumerotApu(sarake);
-    }
-
-    public boolean tarkistaSarakkeet() {
-        for (int sarake = 0; sarake < 9; sarake++) {
-            if (sarakkeenNumerot(sarake).size() != 9) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public int vasenYlakulma(int kohta) {
@@ -160,28 +137,13 @@ public class Pelialue {
         return numerot;
     }
 
-    public boolean tarkistaOsaruudukot() {
-        for (int rivi = 0; rivi < 9; rivi += 3) {
-            for (int sarake = 0; sarake < 9; sarake += 3) {
-                if (osaruudukonNumerot(rivi, sarake).size() != 9) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public boolean tarkista() {
-        return tarkistaRivit() && tarkistaSarakkeet() && tarkistaOsaruudukot();
-    }
-
-    public void tulostaPelialue() {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                System.out.print(ruudukko[i][j].getArvo());
-            }
-        }
-    }
+//    public void tulostaPelialue() {
+//        for (int i = 0; i < 9; i++) {
+//            for (int j = 0; j < 9; j++) {
+//                System.out.print(ruudukko[i][j].getArvo());
+//            }
+//        }
+//    }
 
     public boolean asetaNumero(int rivi, int sarake, int numero) {
         if (tarkistaIndeksi(rivi) || tarkistaIndeksi(sarake)) {
@@ -194,85 +156,6 @@ public class Pelialue {
         if (!tarkistaIndeksi(rivi) && !tarkistaIndeksi(sarake)) {
             ruudukko[rivi][sarake].tyhjenna();
         }
-    }
-
-    public ArrayDeque<Integer> tarkistaSiirto(int rivi, int sarake, int numero) {
-        if (numero == 0) {
-            return new ArrayDeque();
-        }
-        if (tarkistaNumero(numero) || tarkistaIndeksi(rivi) || tarkistaIndeksi(sarake)) {
-            return new ArrayDeque();
-        }
-        ArrayDeque<Integer> kohdat = new ArrayDeque();
-        kohdat.addAll(tarkistaSiirronRivi(rivi, sarake, numero));
-        kohdat.addAll(tarkistaSiirronSarake(rivi, sarake, numero));
-        kohdat.addAll(tarkistaSiirronOsaruudukko(rivi, sarake, numero));
-        return kohdat;
-    }
-
-    public ArrayDeque<Integer> tarkistaSiirronOsaruudukkoApu(int x, int y, int numero) {
-        ArrayDeque<Integer> kohdat = new ArrayDeque();
-        for (int i = vasenYlakulma(x); i < vasenYlakulma(x) + 3; i++) {
-            for (int j = vasenYlakulma(y); j < vasenYlakulma(y) + 3; j++) {
-                if (i == x && j == y) {
-                    continue;
-                }
-                if (ruudukko[i][j].getArvo() == numero) {
-                    kohdat.add(i);
-                    kohdat.add(j);
-                }
-            }
-        }
-        return kohdat;
-    }
-
-    public ArrayDeque<Integer> tarkistaSiirronOsaruudukko(int x, int y, int numero) {
-        if (tarkistaIndeksi(x) || tarkistaIndeksi(y)) {
-            return new ArrayDeque();
-        }
-        return tarkistaSiirronOsaruudukkoApu(x, y, numero);
-    }
-
-    public ArrayDeque<Integer> tarkistaSiirronSarakeApu(int x, int y, int numero) {
-        ArrayDeque<Integer> kohdat = new ArrayDeque();
-        for (int i = 0; i < 9; i++) {
-            if (i == x) {
-                continue;
-            }
-            if (ruudukko[i][y].getArvo() == numero) {
-                kohdat.add(i);
-                kohdat.add(y);
-            }
-        }
-        return kohdat;
-    }
-
-    public ArrayDeque<Integer> tarkistaSiirronSarake(int x, int y, int numero) {
-        if (tarkistaIndeksi(x) || tarkistaIndeksi(y)) {
-            return new ArrayDeque();
-        }
-        return tarkistaSiirronSarakeApu(x, y, numero);
-    }
-
-    public ArrayDeque<Integer> tarkistaSiirronRiviApu(int x, int y, int numero) {
-        ArrayDeque<Integer> kohdat = new ArrayDeque();
-        for (int i = 0; i < 9; i++) {
-            if (i == y) {
-                continue;
-            }
-            if (ruudukko[x][i].getArvo() == numero) {
-                kohdat.add(x);
-                kohdat.add(i);
-            }
-        }
-        return kohdat;
-    }
-
-    public ArrayDeque<Integer> tarkistaSiirronRivi(int x, int y, int numero) {
-        if (tarkistaIndeksi(x) || tarkistaIndeksi(y)) {
-            return new ArrayDeque();
-        }
-        return tarkistaSiirronRiviApu(x, y, numero);
     }
 
     public int numero(int rivi, int sarake) {

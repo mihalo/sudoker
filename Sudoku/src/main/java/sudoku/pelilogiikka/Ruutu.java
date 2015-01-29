@@ -7,7 +7,7 @@ public class Ruutu {
     private int sarake;
 
     public Ruutu(int arvo, int rivi, int sarake) {
-        arvo = 0;
+        this.arvo = arvo;
         this.rivi = rivi;
         this.sarake = sarake;
     }
