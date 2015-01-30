@@ -19,7 +19,6 @@ public class Ruutu {
     public int getSarake() {
         return sarake;
     }
-    
 
     public int getArvo() {
         return arvo;
@@ -30,6 +29,10 @@ public class Ruutu {
     }
 
     public boolean setArvo(int arvo) {
+        if (arvo == 0) {
+            this.arvo = 0;
+            return true;
+        }
         if (tarkistaNumero(arvo)) {
             this.arvo = arvo;
             return true;
