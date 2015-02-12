@@ -63,16 +63,16 @@ public class UusiPeliNakyma implements Runnable {
     private Component luoPelikentta() {
         JPanel paneeli = new JPanel();
         ruudut = new JButton[9][9];
-
+ 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (pelialue.ruudukko[i][j].vapaa()) {
+                if (pelialue.getRuudukko()[i][j].vapaa()) {
                     ruudut[i][j] = new JButton("  ");
                 } else {
-                    ruudut[i][j] = new JButton("" + pelialue.ruudukko[i][j].getArvo());
+                    ruudut[i][j] = new JButton("" + pelialue.getRuudukko()[i][j].getArvo());
                 }
                 ruudut[i][j].setBackground(Color.WHITE);
-                if (!pelialue.ruudukko[i][j].vapaa()) {
+                if (!pelialue.getRuudukko()[i][j].vapaa()) {
                     ruudut[i][j].setEnabled(false);
                 }
             }

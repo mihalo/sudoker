@@ -2,13 +2,22 @@ package sudoku.pelilogiikka;
 
 import java.util.*;
 
+/**
+ *  Luo sudoku peliin pohjan sekä ratkaisun.
+ *  Pohja on kelvollinen vain jos siinä on yksi mahdollinen ratkaisu.
+ */
 public class Pohjageneraattori {
 
     private Pelialue p;
-    public int maara;
+    private int maara;
     private ArrayList<int[]> vapaatPaikat;
     private final Tarkastaja tarkastaja = new Tarkastaja();
 
+    /**
+     * Luo sudoku pohjan, ottaen huomioon vaikeustason
+     * 
+     * @param vaikeustaso
+     */
     public Pohjageneraattori(int vaikeustaso) {
         vaikeustaso(vaikeustaso);
     }
@@ -99,6 +108,9 @@ public class Pohjageneraattori {
         }
     }
 
+    /**
+     * Metodi kokeilee ratkaista luotua pohjaa sekä tarkistaa onko pohjassa enemmän kuin yksi ratkaisu
+     */
     public void ratkaisija() {
         maara = 0;
         ratkaise(0, 0);

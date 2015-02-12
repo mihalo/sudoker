@@ -36,7 +36,7 @@ public class PelialueTest {
 
     @Test
     public void jokainenRuutuOnVapaaAluksi() {
-        Ruutu[][] ruudukko = p.ruudukko;
+        Ruutu[][] ruudukko = p.getRuudukko();
         for (Ruutu[] ruudukko1 : ruudukko) {
             for (int j = 0; j < ruudukko.length; j++) {
                 assertEquals(true, ruudukko1[j].vapaa());
@@ -117,15 +117,6 @@ public class PelialueTest {
             verrattava.add(i + 1);
         }
         assertEquals(true, verrattava.equals(k.sarakkeenNumerot(2)));
-    }
-
-    @Test
-    public void vasenYlakulmaToimiiOikein() {
-        for (int i = 0; i < 9; i += 3) {
-            for (int j = 0; j < 3; j++) {
-                assertEquals(i, p.vasenYlakulma(i + j));
-            }
-        }
     }
 
     @Test

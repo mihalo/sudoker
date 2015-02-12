@@ -100,7 +100,7 @@ public class Pelikenttakuuntelija implements MouseListener {
             for (int j = 0; j < 9; j++) {
                 if (ruudut[i][j].isEnabled()) {
                     ruudut[i][j].setText("  ");
-                    pelialue.ruudukko[i][j].tyhjenna();
+                    pelialue.getRuudukko()[i][j].tyhjenna();
                 }
             }
         }

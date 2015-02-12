@@ -16,21 +16,7 @@ public class RuutuTest {
         assertEquals(2, r.getRivi());
         assertEquals(3, r.getSarake());
     }
-    
-    @Test
-    public void tarkistaNumeroToimiiOikeinPienella() {
-        Ruutu r = new Ruutu(0,0,0);
-        assertEquals(true, r.tarkistaNumero(1));
-        assertEquals(false, r.tarkistaNumero(0));
-    }
-    
-    @Test
-    public void tarkistaNumeroToimiiOikeinSuurella() {
-        Ruutu r = new Ruutu(0,0,0);
-        assertEquals(true, r.tarkistaNumero(9));
-        assertEquals(false, r.tarkistaNumero(10));
-    }
-    
+        
     @Test
     public void tyhjennaMetodiToimii() {
         Ruutu r = new Ruutu(4,0,0);

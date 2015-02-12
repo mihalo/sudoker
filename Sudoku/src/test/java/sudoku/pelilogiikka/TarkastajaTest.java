@@ -65,9 +65,9 @@ public class TarkastajaTest {
         peli.asetaNumero(1, 3, 1);
         peli.asetaNumero(3, 1, 1);
         ArrayList<Ruutu> vaarat = tarkastaja.tarkistaSiirto(peli, 1, 1, 1);
-        assertEquals(peli.ruudukko[1][3], vaarat.get(0));
-        assertEquals(peli.ruudukko[3][1], vaarat.get(1));
-        assertEquals(peli.ruudukko[0][0], vaarat.get(2));
+        assertEquals(peli.getRuudukko()[1][3], vaarat.get(0));
+        assertEquals(peli.getRuudukko()[3][1], vaarat.get(1));
+        assertEquals(peli.getRuudukko()[0][0], vaarat.get(2));
     }
     
     @Test

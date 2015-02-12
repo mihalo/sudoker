@@ -1,0 +1,3985 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>Pelialue.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_1'></a>
+</td>
+<td class=''><pre><span  class=''>package sudoku.pelilogiikka;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_2'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_3'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.*;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_4'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_5'></a>
+</td>
+<td class=''><pre><span  class=''>public class Pelialue {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_6'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_7'></a>
+</td>
+<td class=''><pre><span  class=''>    private Ruutu[][] ruudukko;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_8'></a>
+</td>
+<td class=''><pre><span  class=''>    private Ruutu[][] ratkaistuRuudukko;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_9'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_10'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_11'></a>
+</td>
+<td class=''><pre><span  class=''>     * Luo sek&#228; alustaa pelialueen taulukot.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_12'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_13'></a>
+</td>
+<td class='covered'><pre><span  class=''>    public Pelialue() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_14'></a>
+</td>
+<td class='covered'><pre><span  class=''>        ruudukko = new Ruutu[9][9];</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_15'></a>
+</td>
+<td class='covered'><pre><span  class=''>        ratkaistuRuudukko = new Ruutu[9][9];</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_16'/>
+16
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_16'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        alustaTaulukot();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_17'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_18'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_19'></a>
+</td>
+<td class=''><pre><span  class=''>    private void alustaTaulukot() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_20'/>
+20
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_20'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int rivi = 0; rivi &#60; ruudukko.length; rivi++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_21'/>
+21
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_21'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int sarake = 0; sarake &#60; ruudukko.length; sarake++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_22'></a>
+</td>
+<td class='covered'><pre><span  class=''>                ruudukko[rivi][sarake] = new Ruutu(0, rivi, sarake);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_23'></a>
+</td>
+<td class='covered'><pre><span  class=''>                ratkaistuRuudukko[rivi][sarake] = new Ruutu(0, rivi, sarake);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_24'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_25'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_26'/>
+26
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_26'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_27'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_28'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_29'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi palauttaa pelialueen ruudut halutulta rivilt&#228;.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_30'></a>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_31'/>
+31
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_31'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param rivi  Rivi jolta ruudut haetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_32'/>
+32
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_32'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return rivin ruudut</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_33'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_34'></a>
+</td>
+<td class=''><pre><span  class=''>    public ArrayList&#60;Ruutu&#62; rivinRuudut(int rivi) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_35'></a>
+</td>
+<td class='covered'><pre><span  class=''>        ArrayList&#60;Ruutu&#62; ruudut = new ArrayList();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_36'/>
+36
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_36'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int sarake = 0; sarake &#60; 9; sarake++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_37'></a>
+</td>
+<td class='covered'><pre><span  class=''>            ruudut.add(ruudukko[rivi][sarake]);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_38'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_39'/>
+39
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_39'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return ruudut;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_40'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_41'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_42'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_43'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi palauttaa pelialueen ruudut halutusta sarakkeesta.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_44'/>
+44
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_44'></a>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_45'/>
+45
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_45'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param sarake Sarake jolta ruudut haetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_46'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return sarakkeen ruudut</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_47'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_48'></a>
+</td>
+<td class=''><pre><span  class=''>    public ArrayList&#60;Ruutu&#62; sarakkeenRuudut(int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_49'></a>
+</td>
+<td class='covered'><pre><span  class=''>        ArrayList&#60;Ruutu&#62; ruudut = new ArrayList();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_50'/>
+50
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_50'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int rivi = 0; rivi &#60; 9; rivi++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_51'/>
+51
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_51'></a>
+</td>
+<td class='covered'><pre><span  class=''>            ruudut.add(ruudukko[rivi][sarake]);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_52'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_53'/>
+53
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_53'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return ruudut;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_54'/>
+54
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_54'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_55'/>
+55
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_55'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_56'/>
+56
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_56'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_57'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi palauttaa pelialueen ruudut halutusta osaruudukosta, joka on 3x3 kokoinen.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_58'/>
+58
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_58'></a>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_59'/>
+59
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_59'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param rivi</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_60'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param sarake</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_61'/>
+61
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_61'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return osaruudukon ruudut</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_62'/>
+62
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_62'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_63'></a>
+</td>
+<td class=''><pre><span  class=''>    public ArrayList&#60;Ruutu&#62; osaruudukonRuudut(int rivi, int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_64'/>
+64
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_64'></a>
+</td>
+<td class='covered'><pre><span  class=''>        ArrayList&#60;Ruutu&#62; numerot = new ArrayList();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_65'/>
+65
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_65'>4</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = vasenYlakulma(rivi); i &#60; vasenYlakulma(rivi) + 3; i++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_66'/>
+66
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_66'>4</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int j = vasenYlakulma(sarake); j &#60; vasenYlakulma(sarake) + 3; j++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_67'/>
+67
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_67'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (!ruudukko[i][j].vapaa()) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_68'/>
+68
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_68'></a>
+</td>
+<td class='covered'><pre><span  class=''>                    numerot.add(ruudukko[i][j]);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_69'/>
+69
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_69'></a>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_70'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_71'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_72'/>
+72
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_72'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numerot;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_73'/>
+73
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_73'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_74'/>
+74
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_74'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_75'/>
+75
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_75'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_76'/>
+76
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_76'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi asettaa numerot ruudukkoon taulukosta.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_77'/>
+77
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_77'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param numerot numerot j&#228;rjestyksess&#228; vasemmalta oikealle, ylh&#228;&#228;lt&#228; alas.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_78'/>
+78
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_78'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_79'/>
+79
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_79'></a>
+</td>
+<td class=''><pre><span  class=''>    public void asetaNumerot(int[] numerot) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_80'/>
+80
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_80'></a>
+</td>
+<td class='covered'><pre><span  class=''>        int n = 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_81'/>
+81
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_81'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (Ruutu[] ruudukko1 : ruudukko) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_82'/>
+82
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_82'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int j = 0; j &#60; ruudukko.length; j++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_83'/>
+83
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_83'></a>
+</td>
+<td class='covered'><pre><span  class=''>                ruudukko1[j].setArvo(numerot[n]);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_84'/>
+84
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_84'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                n++;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_85'/>
+85
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_85'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_86'/>
+86
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_86'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_87'/>
+87
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_87'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_88'/>
+88
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_88'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_89'/>
+89
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_89'></a>
+</td>
+<td class=''><pre><span  class=''>    private boolean tarkistaIndeksi(int indeksi) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_90'/>
+90
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_90'>5</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return indeksi &#62; 8 || indeksi &#60; 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_91'/>
+91
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_91'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_92'/>
+92
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_92'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_93'/>
+93
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_93'></a>
+</td>
+<td class=''><pre><span  class=''>    private TreeSet&#60;Integer&#62; rivinNumerotApu(int rivi) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_94'/>
+94
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_94'></a>
+</td>
+<td class='covered'><pre><span  class=''>        TreeSet&#60;Integer&#62; numerot = new TreeSet();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_95'/>
+95
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_95'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; ruudukko.length; i++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_96'/>
+96
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_96'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!ruudukko[rivi][i].vapaa()) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_97'/>
+97
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_97'></a>
+</td>
+<td class='covered'><pre><span  class=''>                numerot.add(ruudukko[rivi][i].getArvo());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_98'/>
+98
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_98'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_99'/>
+99
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_99'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_100'/>
+100
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_100'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numerot;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_101'/>
+101
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_101'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_102'/>
+102
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_102'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_103'/>
+103
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_103'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_104'/>
+104
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_104'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi palauttaa halutun rivin numerot TreeSetiss&#228;.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_105'/>
+105
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_105'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param rivi haluttu rivi</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_106'/>
+106
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_106'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return rivin numerot</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_107'/>
+107
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_107'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_108'/>
+108
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_108'></a>
+</td>
+<td class=''><pre><span  class=''>    public TreeSet&#60;Integer&#62; rivinNumerot(int rivi) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_109'/>
+109
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_109'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tarkistaIndeksi(rivi)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_110'/>
+110
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_110'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new TreeSet();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_111'/>
+111
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_111'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_112'/>
+112
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_112'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return rivinNumerotApu(rivi);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_113'/>
+113
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_113'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_114'/>
+114
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_114'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_115'/>
+115
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_115'></a>
+</td>
+<td class=''><pre><span  class=''>    private TreeSet&#60;Integer&#62; sarakkeenNumerotApu(int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_116'/>
+116
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_116'></a>
+</td>
+<td class='covered'><pre><span  class=''>        TreeSet&#60;Integer&#62; numerot = new TreeSet();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_117'/>
+117
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_117'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (Ruutu[] ruudukko1 : ruudukko) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_118'/>
+118
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_118'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!ruudukko1[sarake].vapaa()) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_119'/>
+119
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_119'></a>
+</td>
+<td class='covered'><pre><span  class=''>                numerot.add(ruudukko1[sarake].getArvo());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_120'/>
+120
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_120'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_121'/>
+121
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_121'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_122'/>
+122
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_122'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numerot;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_123'/>
+123
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_123'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_124'/>
+124
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_124'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_125'/>
+125
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_125'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_126'/>
+126
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_126'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi palauttaa halutun sarakkeen numerot TreeSetiss&#228;.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_127'/>
+127
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_127'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param sarake haluttu sarake</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_128'/>
+128
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_128'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return sarakkeen numerot</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_129'/>
+129
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_129'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_130'/>
+130
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_130'></a>
+</td>
+<td class=''><pre><span  class=''>    public TreeSet&#60;Integer&#62; sarakkeenNumerot(int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_131'/>
+131
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_131'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tarkistaIndeksi(sarake)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_132'/>
+132
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_132'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new TreeSet();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_133'/>
+133
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_133'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_134'/>
+134
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_134'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return sarakkeenNumerotApu(sarake);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_135'/>
+135
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_135'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_136'/>
+136
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_136'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_137'/>
+137
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_137'></a>
+</td>
+<td class=''><pre><span  class=''>    private int vasenYlakulma(int kohta) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_138'/>
+138
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_138'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (kohta &#60; 3) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_139'/>
+139
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_139'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_140'/>
+140
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_140'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        } else if (kohta &#60; 6) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_141'/>
+141
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_141'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            return 3;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_142'/>
+142
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_142'></a>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_143'/>
+143
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_143'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            return 6;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_144'/>
+144
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_144'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_145'/>
+145
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_145'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_146'/>
+146
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_146'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_147'/>
+147
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_147'></a>
+</td>
+<td class=''><pre><span  class=''>    private TreeSet&#60;Integer&#62; osaruudukonNumerotApu(int x, int y) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_148'/>
+148
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_148'></a>
+</td>
+<td class='covered'><pre><span  class=''>        TreeSet&#60;Integer&#62; numerot = new TreeSet();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_149'/>
+149
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_149'>4</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int rivi = vasenYlakulma(x); rivi &#60; vasenYlakulma(x) + 3; rivi++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_150'/>
+150
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_150'>4</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            for (int sarake = vasenYlakulma(y); sarake &#60; vasenYlakulma(y) + 3; sarake++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_151'/>
+151
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_151'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (!ruudukko[rivi][sarake].vapaa()) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_152'/>
+152
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_152'></a>
+</td>
+<td class='covered'><pre><span  class=''>                    numerot.add(ruudukko[rivi][sarake].getArvo());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_153'/>
+153
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_153'></a>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_154'/>
+154
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_154'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_155'/>
+155
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_155'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_156'/>
+156
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_156'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numerot;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_157'/>
+157
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_157'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_158'/>
+158
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_158'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_159'/>
+159
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_159'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_160'/>
+160
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_160'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi palauttaa halutun osaruudukon numerot TreeSetiss&#228;.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_161'/>
+161
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_161'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param rivi haluttu rivi</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_162'/>
+162
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_162'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param sarake haluttu sarake</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_163'/>
+163
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_163'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return osaruudukon numerot</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_164'/>
+164
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_164'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_165'/>
+165
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_165'></a>
+</td>
+<td class=''><pre><span  class=''>    public TreeSet&#60;Integer&#62; osaruudukonNumerot(int rivi, int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_166'/>
+166
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_166'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tarkistaIndeksi(rivi) || tarkistaIndeksi(sarake)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_167'/>
+167
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_167'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new TreeSet();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_168'/>
+168
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_168'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_169'/>
+169
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_169'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return osaruudukonNumerotApu(rivi, sarake);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_170'/>
+170
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_170'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_171'/>
+171
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_171'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_172'/>
+172
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_172'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_173'/>
+173
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_173'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi palauttaa numerot osaruudukosta ArrayDequessa</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_174'/>
+174
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_174'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param x rivi</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_175'/>
+175
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_175'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param y sarake</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_176'/>
+176
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_176'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return numerot osaruudukosta</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_177'/>
+177
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_177'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_178'/>
+178
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_178'></a>
+</td>
+<td class=''><pre><span  class=''>    public ArrayDeque&#60;Integer&#62; numerotOsaruudukosta(int x, int y) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_179'/>
+179
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_179'></a>
+</td>
+<td class='covered'><pre><span  class=''>        ArrayDeque&#60;Integer&#62; numerot = new ArrayDeque();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_180'/>
+180
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_180'>4</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int rivi = vasenYlakulma(x); rivi &#60; vasenYlakulma(x) + 3; rivi++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_181'/>
+181
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_181'>4</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int sarake = vasenYlakulma(y); sarake &#60; vasenYlakulma(y) + 3; sarake++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_182'/>
+182
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_182'></a>
+</td>
+<td class='covered'><pre><span  class=''>                numerot.add(ruudukko[rivi][sarake].getArvo());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_183'/>
+183
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_183'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_184'/>
+184
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_184'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_185'/>
+185
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_185'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numerot;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_186'/>
+186
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_186'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_187'/>
+187
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_187'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_188'/>
+188
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_188'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_189'/>
+189
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_189'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi asettaa numeron pelialueeseen</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_190'/>
+190
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_190'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param rivi rivi johon numero asetetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_191'/>
+191
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_191'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param sarake sarake johon numero asetetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_192'/>
+192
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_192'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param numero numero joka asetetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_193'/>
+193
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_193'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return onnistuiko asettaminen</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_194'/>
+194
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_194'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_195'/>
+195
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_195'></a>
+</td>
+<td class=''><pre><span  class=''>    public boolean asetaNumero(int rivi, int sarake, int numero) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_196'/>
+196
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_196'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (tarkistaIndeksi(rivi) || tarkistaIndeksi(sarake)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_197'/>
+197
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_197'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_198'/>
+198
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_198'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_199'/>
+199
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_199'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return ruudukko[rivi][sarake].setArvo(numero);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_200'/>
+200
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_200'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_201'/>
+201
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_201'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_202'/>
+202
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_202'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_203'/>
+203
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_203'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi tyhjentaa ruudun</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_204'/>
+204
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_204'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param rivi rivi</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_205'/>
+205
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_205'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param sarake sarake</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_206'/>
+206
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_206'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_207'/>
+207
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_207'></a>
+</td>
+<td class=''><pre><span  class=''>    public void tyhjennaRuutu(int rivi, int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_208'/>
+208
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_208'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!tarkistaIndeksi(rivi) &#38;&#38; !tarkistaIndeksi(sarake)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_209'/>
+209
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_209'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            ruudukko[rivi][sarake].tyhjenna();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_210'/>
+210
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_210'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_211'/>
+211
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_211'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_212'/>
+212
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_212'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_213'/>
+213
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_213'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_214'/>
+214
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_214'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi palauttaa numeron, joka on pelialueella halutussa kohdassa</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_215'/>
+215
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_215'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param rivi rivi jolta haetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_216'/>
+216
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_216'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param sarake sarake josta haetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_217'/>
+217
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_217'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return numero TAI -1 jos yritet&#228;&#228;n hakea taulukon ulkopuolelta</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_218'/>
+218
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_218'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_219'/>
+219
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_219'></a>
+</td>
+<td class=''><pre><span  class=''>    public int numero(int rivi, int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_220'/>
+220
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_220'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!tarkistaIndeksi(rivi) &#38;&#38; !tarkistaIndeksi(sarake)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_221'/>
+221
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_221'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return ruudukko[rivi][sarake].getArvo();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_222'/>
+222
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_222'></a>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_223'/>
+223
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_223'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return -1;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_224'/>
+224
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_224'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_225'/>
+225
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_225'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_226'/>
+226
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_226'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_227'/>
+227
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_227'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_228'/>
+228
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_228'></a>
+</td>
+<td class=''><pre><span  class=''>     * Palauttaa ruutu olion halutusta kohtaa pelialuetta</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_229'/>
+229
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_229'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param rivi rivi jolta haetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_230'/>
+230
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_230'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param sarake sarake josta haetaan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_231'/>
+231
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_231'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return ruutu tai null jos haetaan taulukon ulkopuolelta</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_232'/>
+232
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_232'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_233'/>
+233
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_233'></a>
+</td>
+<td class=''><pre><span  class=''>    public Ruutu ruutu(int rivi, int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_234'/>
+234
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_234'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!tarkistaIndeksi(rivi) &#38;&#38; !tarkistaIndeksi(sarake)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_235'/>
+235
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_235'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return ruudukko[rivi][sarake];</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_236'/>
+236
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_236'></a>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_237'/>
+237
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_237'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return null;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_238'/>
+238
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_238'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_239'/>
+239
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_239'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_240'/>
+240
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_240'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_241'/>
+241
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_241'></a>
+</td>
+<td class=''><pre><span  class=''>    public void setRuudukko(Ruutu[][] r) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_242'/>
+242
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_242'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        this.ruudukko = r;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_243'/>
+243
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_243'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_244'/>
+244
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_244'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_245'/>
+245
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_245'></a>
+</td>
+<td class=''><pre><span  class=''>    public void setRatkaistuRuudukko(Ruutu[][] r) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_246'/>
+246
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_246'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        this.ratkaistuRuudukko = r;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_247'/>
+247
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_247'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_248'/>
+248
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_248'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_249'/>
+249
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_249'></a>
+</td>
+<td class=''><pre><span  class=''>    public int getRatkaisu(int rivi, int sarake) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_250'/>
+250
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_250'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return ratkaistuRuudukko[rivi][sarake].getArvo();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_251'/>
+251
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_251'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_252'/>
+252
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_252'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_253'/>
+253
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_253'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_254'/>
+254
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_254'></a>
+</td>
+<td class=''><pre><span  class=''>     * Palauttaa satunnaisen tyhj&#228;n paikan sijainnin pelialueelta.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_255'/>
+255
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_255'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return int[] jossa ensin rivi sitten sarake</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_256'/>
+256
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_256'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_257'/>
+257
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_257'></a>
+</td>
+<td class=''><pre><span  class=''>    public int[] vihje() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_258'/>
+258
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_258'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        ArrayList&#60;int[]&#62; tyhjatPaikat = new ArrayList();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_259'/>
+259
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_259'>3</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (int i = 0; i &#60; 9; i++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_260'/>
+260
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_260'>3</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            for (int j = 0; j &#60; 9; j++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_261'/>
+261
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_261'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                if (ruudukko[i][j].vapaa()) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_262'/>
+262
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_262'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>                    tyhjatPaikat.add(new int[]{i, j});</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_263'/>
+263
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_263'></a>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_264'/>
+264
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_264'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_265'/>
+265
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_265'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_266'/>
+266
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_266'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        Collections.shuffle(tyhjatPaikat);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_267'/>
+267
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_267'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return tyhjatPaikat.get(0);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_268'/>
+268
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_268'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_269'/>
+269
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_269'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_270'/>
+270
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_270'></a>
+</td>
+<td class=''><pre><span  class=''>    public Ruutu[][] getRuudukko() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_271'/>
+271
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_271'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return ruudukko;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_272'/>
+272
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_272'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_273'/>
+273
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_273'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_274'/>
+274
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_274'></a>
+</td>
+<td class=''><pre><span  class=''>   </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52a19f99_275'/>
+275
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_275'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_16'/> 
+
+<p class='KILLED'>removed call to sudoku/pelilogiikka/Pelialue::alustaTaulukot : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_20'/> 
+
+<p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_21'/> 
+
+<p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_36'/> 
+
+<p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_39'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::rivinRuudut to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_50'/> 
+
+<p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_53'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::sarakkeenRuudut to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_65'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>Replaced integer addition with subtraction : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistusToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_66'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistusToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>Replaced integer addition with subtraction : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_67'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_72'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::osaruudukonRuudut to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_81'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.TarkastajaTest.kaytettavatNumerotToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_82'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.TarkastajaTest.kaytettavatNumerotToimiiOikein(sudoku.pelilogiikka.TarkastajaTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_84'/> 
+
+<p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_90'/> 
+
+<p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianSuurellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_95'/> 
+
+<p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_96'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_100'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::rivinNumerotApu to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_109'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_110'>110</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_110'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::rivinNumerot to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_112'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::rivinNumerot to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.riviNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_117'/> 
+
+<p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_118'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_122'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::sarakkeenNumerotApu to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_131'>131</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_131'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_132'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::sarakkeenNumerot to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_134'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::sarakkeenNumerot to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_138'>138</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_138'/> 
+
+<p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_139'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_140'/> 
+
+<p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='SURVIVED'>negated conditional : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_141'/> 
+
+<p class='SURVIVED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_143'/> 
+
+<p class='SURVIVED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_149'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>Replaced integer addition with subtraction : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_150'/> 
+
+<p class='KILLED'>Replaced integer addition with subtraction : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_151'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_156'>156</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_156'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::osaruudukonNumerotApu to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_166'>166</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_166'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_167'>167</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_167'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::osaruudukonNumerot to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_169'>169</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_169'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::osaruudukonNumerot to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_180'>180</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_180'/> 
+
+<p class='KILLED'>Replaced integer addition with subtraction : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_181'>181</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_181'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>Replaced integer addition with subtraction : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_185'>185</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_185'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::numerotOsaruudukosta to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_196'>196</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_196'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_197'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> sudoku.pelilogiikka.PelialueTest.numeronAsettaminenEiOnnistuRajojenUlkopuolelle(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_199'>199</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_199'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> sudoku.pelilogiikka.PelialueTest.liianPienenNumeronAsettaminenEiOnnistu(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_208'>208</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_208'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_209'>209</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_209'/> 
+
+<p class='KILLED'>removed call to sudoku/pelilogiikka/Ruutu::tyhjenna : KILLED -> sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_220'>220</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_220'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanNumeron(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanNumeron(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_221'>221</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_221'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanNumeron(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_223'>223</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_223'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanNumeron(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_234'>234</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_234'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> <p class='KILLED'>negated conditional : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_235'>235</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_235'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::ruutu to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_237'>237</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_237'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::ruutu to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_250'>250</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_250'/> 
+
+<p class='NO_COVERAGE'>replaced return of integer sized value with (x == 0 ? 1 : 0) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_259'>259</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_259'/> 
+
+<p class='NO_COVERAGE'>Changed increment from 1 to -1 : NO_COVERAGE</p> <p class='NO_COVERAGE'>changed conditional boundary : NO_COVERAGE</p> <p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_260'>260</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_260'/> 
+
+<p class='NO_COVERAGE'>Changed increment from 1 to -1 : NO_COVERAGE</p> <p class='NO_COVERAGE'>changed conditional boundary : NO_COVERAGE</p> <p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_261'>261</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_261'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_266'>266</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_266'/> 
+
+<p class='NO_COVERAGE'>removed call to java/util/Collections::shuffle : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_267'>267</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_267'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::vihje to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52a19f99_271'>271</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52a19f99_271'/> 
+
+<p class='KILLED'>mutated return of Object value for sudoku/pelilogiikka/Pelialue::getRuudukko to ( if (x != null) null else throw new RuntimeException ) : KILLED -> sudoku.pelilogiikka.PelialueTest.jokainenRuutuOnVapaaAluksi(sudoku.pelilogiikka.PelialueTest)</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest) (4 ms)</li><li>sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotEiToimiLiianSuurellaNumerolla(sudoku.pelilogiikka.PelialueTest) (5 ms)</li><li>sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotEiToimiLiianSuurellaNumerolla(sudoku.pelilogiikka.PelialueTest) (9 ms)</li><li>sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotArrayDequeToimiiOikein(sudoku.pelilogiikka.PelialueTest) (11 ms)</li><li>sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianSuurellaNumerolla(sudoku.pelilogiikka.PelialueTest) (4 ms)</li><li>sudoku.pelilogiikka.PelialueTest.riviNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest) (4 ms)</li><li>sudoku.pelilogiikka.PelialueTest.ruudunTyhjennysToimii(sudoku.pelilogiikka.PelialueTest) (5 ms)</li><li>sudoku.pelilogiikka.TarkastajaTest.tarkistaSiirtoToimiiOikein(sudoku.pelilogiikka.TarkastajaTest) (2 ms)</li><li>sudoku.pelilogiikka.TarkastajaTest.kaytettavatNumerotToimiiOikein(sudoku.pelilogiikka.TarkastajaTest) (2 ms)</li><li>sudoku.pelilogiikka.PelialueTest.riviNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest) (5 ms)</li><li>sudoku.pelilogiikka.PelialueTest.numeronAsettaminenEiOnnistuRajojenUlkopuolelle(sudoku.pelilogiikka.PelialueTest) (7 ms)</li><li>sudoku.pelilogiikka.TarkastajaTest.tarkastaNumeroToimiiOikein(sudoku.pelilogiikka.TarkastajaTest) (2 ms)</li><li>sudoku.pelilogiikka.PelialueTest.palauttaaOikeanNumeron(sudoku.pelilogiikka.PelialueTest) (5 ms)</li><li>sudoku.pelilogiikka.PelialueTest.jokainenRuutuOnVapaaAluksi(sudoku.pelilogiikka.PelialueTest) (24 ms)</li><li>sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotEiToimiLiianPienellaNumerolla(sudoku.pelilogiikka.PelialueTest) (7 ms)</li><li>sudoku.pelilogiikka.PelialueTest.osaruudukonNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest) (8 ms)</li><li>sudoku.pelilogiikka.PelialueTest.palauttaaOikeanRuudun(sudoku.pelilogiikka.PelialueTest) (4 ms)</li><li>sudoku.pelilogiikka.PelialueTest.liianPienenNumeronAsettaminenEiOnnistu(sudoku.pelilogiikka.PelialueTest) (9 ms)</li><li>sudoku.pelilogiikka.TarkastajaTest.tarkistusToimiiOikein(sudoku.pelilogiikka.TarkastajaTest) (3 ms)</li><li>sudoku.pelilogiikka.PelialueTest.sarakkeenNumerotPalauttaaOikeatNumerot(sudoku.pelilogiikka.PelialueTest) (4 ms)</li><li>sudoku.pelilogiikka.PelialueTest.liianSuurenNumeronAsettaminenEiOnnistu(sudoku.pelilogiikka.PelialueTest) (9 ms)</li><li>sudoku.pelilogiikka.TarkastajaTest.tarkastaIndeksiToimiiOikein(sudoku.pelilogiikka.TarkastajaTest) (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>
