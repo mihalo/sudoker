@@ -3,8 +3,8 @@ package sudoku.pelilogiikka;
 import java.util.*;
 
 /**
- *  Luo sudoku peliin pohjan sekä ratkaisun.
- *  Pohja on kelvollinen vain jos siinä on yksi mahdollinen ratkaisu.
+ * Luo sudoku peliin pohjan sekä ratkaisun. Pohja on kelvollinen vain jos siinä
+ * on yksi mahdollinen ratkaisu.
  */
 public class Pohjageneraattori {
 
@@ -15,7 +15,7 @@ public class Pohjageneraattori {
 
     /**
      * Luo sudoku pohjan, ottaen huomioon vaikeustason
-     * 
+     *
      * @param vaikeustaso
      */
     public Pohjageneraattori(int vaikeustaso) {
@@ -45,7 +45,7 @@ public class Pohjageneraattori {
         Ruutu[][] ratkaisu = new Ruutu[9][9];
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                ratkaisu[i][j] = new Ruutu(p.numero(i,j),i,j);
+                ratkaisu[i][j] = new Ruutu(p.numero(i, j), i, j);
             }
         }
         p.setRatkaistuRuudukko(ratkaisu);
@@ -109,7 +109,8 @@ public class Pohjageneraattori {
     }
 
     /**
-     * Metodi kokeilee ratkaista luotua pohjaa sekä tarkistaa onko pohjassa enemmän kuin yksi ratkaisu
+     * Metodi kokeilee ratkaista luotua pohjaa sekä tarkistaa onko pohjassa
+     * enemmän kuin yksi ratkaisu
      */
     public void ratkaisija() {
         maara = 0;
@@ -129,7 +130,7 @@ public class Pohjageneraattori {
         } else {
             ArrayList<Integer> kaytettavat = tarkastaja.kaytettavatNumerot(p, rivi, sarake);
             for (Integer kaytettavat1 : kaytettavat) {
-                if (tarkastaja.tarkistaSiirto(p,rivi,sarake,kaytettavat1).isEmpty()) {
+                if (tarkastaja.tarkistaSiirto(p, rivi, sarake, kaytettavat1).isEmpty()) {
                     p.asetaNumero(rivi, sarake, kaytettavat1);
                     ratkaisija();
                     if (maara >= 1) {
@@ -161,7 +162,7 @@ public class Pohjageneraattori {
             }
         }
     }
-    
+
     public int getMaara() {
         return maara;
     }
