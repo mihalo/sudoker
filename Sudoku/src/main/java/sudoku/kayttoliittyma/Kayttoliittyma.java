@@ -19,12 +19,12 @@ public class Kayttoliittyma implements Runnable {
         frame.setSize(500, 500);
         frame.setVisible(true);
         frame.setResizable(false);
-        
+
         AloitusNakyma aln = new AloitusNakyma(this);
         aln.run();
 
     }
-    
+
     public JFrame getFrame() {
         return frame;
     }

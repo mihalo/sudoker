@@ -1,4 +1,3 @@
-
 package sudoku.kayttoliittyma.kuuntelijat;
 
 import java.awt.event.ActionEvent;
@@ -9,22 +8,22 @@ import sudoku.kayttoliittyma.Kayttoliittyma;
 import sudoku.kayttoliittyma.UusiPeliNakyma;
 
 /**
- * AloitusnakymanKuuntelija vastaa aloitusnäkymän toiminnallisuudesta. 
+ * AloitusnakymanKuuntelija vastaa aloitusnäkymän toiminnallisuudesta.
  */
 public class AloitusnakymanKuuntelija implements ActionListener {
-    
+
     private Kayttoliittyma kali;
     private JButton helppo;
     private JButton keskitaso;
     private JButton vaikea;
-    
+
     public AloitusnakymanKuuntelija(JButton uusiPeli, JButton keskitaso, JButton vaikea, Kayttoliittyma kali) {
         this.kali = kali;
         this.helppo = uusiPeli;
         this.keskitaso = keskitaso;
         this.vaikea = vaikea;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -36,10 +35,10 @@ public class AloitusnakymanKuuntelija implements ActionListener {
             uusiPeli(3);
         }
     }
-    
+
     private void uusiPeli(int vaikeus) {
         UusiPeliNakyma uusipeli = new UusiPeliNakyma(kali, vaikeus);
         SwingUtilities.invokeLater(uusipeli);
     }
-    
+
 }

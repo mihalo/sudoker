@@ -104,10 +104,11 @@ public class Pelikenttakuuntelija implements MouseListener {
     }
 
     /**
-     * Metodi tarkistaa pelinäkymän sekä päivittää sen.
-     * Jos numero asetetaan virheelliseen kohtaan, ruutu värjätään punaiseksi.
-     * Jos ruudukko on ratkaistu onnistuneesti, kerotaan se käyttäjälle sekä kysytään miten jatketaan.
-     * 
+     * Metodi tarkistaa pelinäkymän sekä päivittää sen. Jos numero asetetaan
+     * virheelliseen kohtaan, ruutu värjätään punaiseksi. Jos ruudukko on
+     * ratkaistu onnistuneesti, kerotaan se käyttäjälle sekä kysytään miten
+     * jatketaan.
+     *
      * @param r ruudut
      * @param p pelialue
      * @param vaarat väärät numerot väärissä kohdissa
@@ -147,6 +148,7 @@ public class Pelikenttakuuntelija implements MouseListener {
     }
 
     private void aloitaUusiPeli() {
+        kali.getFrame().dispose();
         Kayttoliittyma r = new Kayttoliittyma();
         SwingUtilities.invokeLater(r);
     }
