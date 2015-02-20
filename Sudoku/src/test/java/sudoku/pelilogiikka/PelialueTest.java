@@ -181,5 +181,13 @@ public class PelialueTest {
         assertEquals(null, k.ruutu(99, 99));
     }
     
+    @Test
+    public void vihjeAntaaTyhjanRuudun() {
+        Pelialue p = new Pelialue();
+        p.asetaNumerot(testiSudoku);
+        int[] kordinaatit = p.vihje();
+        assertEquals(0, p.getRuudukko()[kordinaatit[0]][kordinaatit[1]].getArvo());
+    }
+    
 
 }
