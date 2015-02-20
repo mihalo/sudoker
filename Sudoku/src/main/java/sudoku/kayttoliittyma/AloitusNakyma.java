@@ -1,20 +1,16 @@
 package sudoku.kayttoliittyma;
 
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import sudoku.kayttoliittyma.kuuntelijat.AloitusnakymanKuuntelija;
 
+/**
+ * Aloitusnäkymä luokka, joka luo näytölle aloitusnäkymän. 
+ * Aloitusnäkymässä voi aloittaa uuden pelin sekä valita vaikeustason.
+ */
 public class AloitusNakyma implements Runnable {
 
     private JFrame frame;

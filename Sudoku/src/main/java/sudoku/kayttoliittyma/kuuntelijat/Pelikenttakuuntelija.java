@@ -2,28 +2,24 @@ package sudoku.kayttoliittyma.kuuntelijat;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
-import javax.swing.JRootPane;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import sudoku.kayttoliittyma.Kayttoliittyma;
-import sudoku.kayttoliittyma.UusiPeliNakyma;
 import sudoku.pelilogiikka.Pelialue;
 import sudoku.pelilogiikka.Ruutu;
 import sudoku.pelilogiikka.Tarkastaja;
 
+/**
+ * PelikenttaKuuntelija vastaa pelinäkymän toiminnallisuudesta.
+ */
 public class Pelikenttakuuntelija implements MouseListener {
 
     private Kayttoliittyma kali;
@@ -49,7 +45,7 @@ public class Pelikenttakuuntelija implements MouseListener {
         luoPopupMenu();
     }
 
-    public void luoPopupMenu() {
+    private void luoPopupMenu() {
         popup = new JPopupMenu("Menu");
         popupkuuntelija = new Popupkuuntelija(kali, ruudut, pelialue, this);
         for (int i = 0; i < 10; i++) {
@@ -75,7 +71,7 @@ public class Pelikenttakuuntelija implements MouseListener {
         }
     }
 
-    public void vihje() {
+    private void vihje() {
         paivita(ruudut, pelialue, new ArrayList());
         int[] paikka = pelialue.vihje();
         ruudut[paikka[0]][paikka[1]].setEnabled(false);
@@ -84,7 +80,7 @@ public class Pelikenttakuuntelija implements MouseListener {
         pelialue.asetaNumero(paikka[0], paikka[1], pelialue.getRatkaisu(paikka[0], paikka[1]));
     }
 
-    public void ratkaise() {
+    private void ratkaise() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 ruudut[i][j].setEnabled(false);
@@ -95,7 +91,7 @@ public class Pelikenttakuuntelija implements MouseListener {
         paivita(ruudut, pelialue, new ArrayList());
     }
 
-    public void tyhjenna() {
+    private void tyhjenna() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (ruudut[i][j].isEnabled()) {
@@ -107,6 +103,15 @@ public class Pelikenttakuuntelija implements MouseListener {
         asetaValkoinenKaikille();
     }
 
+    /**
+     * Metodi tarkistaa pelinäkymän sekä päivittää sen.
+     * Jos numero asetetaan virheelliseen kohtaan, ruutu värjätään punaiseksi.
+     * Jos ruudukko on ratkaistu onnistuneesti, kerotaan se käyttäjälle sekä kysytään miten jatketaan.
+     * 
+     * @param r ruudut
+     * @param p pelialue
+     * @param vaarat väärät numerot väärissä kohdissa
+     */
     public void paivita(JButton[][] r, Pelialue p, ArrayList<Ruutu> vaarat) {
         this.ruudut = r;
         this.pelialue = p;
@@ -156,18 +161,22 @@ public class Pelikenttakuuntelija implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent me) {
+        //EI KÄYTÖSSÄ
     }
 
     @Override
     public void mousePressed(MouseEvent me) {
+        //EI KÄYTÖSSÄ
     }
 
     @Override
     public void mouseEntered(MouseEvent me) {
+        //EI KÄYTÖSSÄ
     }
 
     @Override
     public void mouseExited(MouseEvent me) {
+        //EI KÄYTÖSSÄ
     }
 
 }

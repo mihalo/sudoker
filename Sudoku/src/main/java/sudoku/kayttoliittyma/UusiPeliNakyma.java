@@ -4,13 +4,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayDeque;
-import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,6 +16,9 @@ import sudoku.kayttoliittyma.kuuntelijat.Pelikenttakuuntelija;
 import sudoku.pelilogiikka.Pelialue;
 import sudoku.pelilogiikka.Pohjageneraattori;
 
+/**
+ * Graafisen käyttöliittymän pelinäkymä luokka, joka luo näytölle pelialuuen sekä valikon.
+ */
 public class UusiPeliNakyma implements Runnable {
 
     private Kayttoliittyma kali;

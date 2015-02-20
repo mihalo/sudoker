@@ -8,6 +8,9 @@ import javax.swing.SwingUtilities;
 import sudoku.kayttoliittyma.Kayttoliittyma;
 import sudoku.kayttoliittyma.UusiPeliNakyma;
 
+/**
+ * AloitusnakymanKuuntelija vastaa aloitusnäkymän toiminnallisuudesta. 
+ */
 public class AloitusnakymanKuuntelija implements ActionListener {
     
     private Kayttoliittyma kali;

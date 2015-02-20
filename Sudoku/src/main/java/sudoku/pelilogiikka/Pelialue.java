@@ -2,6 +2,9 @@ package sudoku.pelilogiikka;
 
 import java.util.*;
 
+/**
+ * Pelialue luokka, joka sisältää pelin ruudut sekä ratkaisun.
+ */
 public class Pelialue {
 
     private Ruutu[][] ruudukko;

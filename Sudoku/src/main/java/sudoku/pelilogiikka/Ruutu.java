@@ -1,5 +1,8 @@
 package sudoku.pelilogiikka;
 
+/**
+ * Ruutu-olio luokka. Jokaisella ruudulla on oma sijainti sekä arvo 1-9 tai tyhjä (0).
+ */
 public class Ruutu {
 
     private int arvo;
@@ -61,7 +64,7 @@ public class Ruutu {
 
     /**
      *
-     * @return palauttaa true jos ruutu on tyhja, muuten false
+     * @return palauttaa true jos ruutu on tyhja, muuten false.
      */
     public boolean vapaa() {
         return this.arvo == 0;

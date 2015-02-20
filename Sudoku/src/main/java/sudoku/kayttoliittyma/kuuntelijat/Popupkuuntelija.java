@@ -1,23 +1,19 @@
 package sudoku.kayttoliittyma.kuuntelijat;
 
-import java.awt.Component;
+import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import sudoku.kayttoliittyma.Kayttoliittyma;
 import sudoku.pelilogiikka.Pelialue;
 import sudoku.pelilogiikka.Ruutu;
 import sudoku.pelilogiikka.Tarkastaja;
 
+/**
+ * Popupkuuntelija vastaa popupvalikon toiminnallisuudesta.
+ */
 public class Popupkuuntelija implements ActionListener {
 
     private Kayttoliittyma kali;
@@ -50,7 +46,7 @@ public class Popupkuuntelija implements ActionListener {
 
     }
 
-    public int[] kordinaatit(JButton nappi) {
+    private int[] kordinaatit(JButton nappi) {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (nappi == ruudut[i][j]) {

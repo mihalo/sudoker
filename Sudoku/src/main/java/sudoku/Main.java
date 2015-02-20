@@ -30,16 +30,6 @@ public class Main {
         1, 2, 7, 4, 6, 5, 9, 3, 8};
 
     public static void main(String[] args) {
-//        Pelialue p = new Pelialue();
-//        Tarkastaja t = new Tarkastaja();
-//        
-//        p.asetaNumerot(testiSudoku);
-//        System.out.println(t.tarkasta(p));
-//        
-//        p.asetaNumerot(testiSudokuRatkaistu);
-//        System.out.println(t.tarkasta(p));
-
-//        Pohjageneraattori p = new Pohjageneraattori(3);
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
     }

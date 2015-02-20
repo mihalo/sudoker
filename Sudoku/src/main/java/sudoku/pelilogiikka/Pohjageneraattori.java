@@ -161,5 +161,9 @@ public class Pohjageneraattori {
             }
         }
     }
+    
+    public int getMaara() {
+        return maara;
+    }
 
 }

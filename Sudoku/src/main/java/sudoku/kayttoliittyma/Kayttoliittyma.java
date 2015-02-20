@@ -1,21 +1,14 @@
 package sudoku.kayttoliittyma;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import sudoku.pelilogiikka.Pelialue;
 
+/**
+ * Käyttöliittymä luokka, joka käynnistää aloitusnäkymän.
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-
-    public Kayttoliittyma() {
-
-    }
 
     @Override
     public void run() {
