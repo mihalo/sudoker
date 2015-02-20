@@ -219,7 +219,7 @@ public class Pelialue {
      * @param sarake sarake josta haetaan
      * @return numero TAI -1 jos yritetään hakea taulukon ulkopuolelta
      */
-    public int numero(int rivi, int sarake) {
+    public int getNumero(int rivi, int sarake) {
         if (!tarkistaIndeksi(rivi) && !tarkistaIndeksi(sarake)) {
             return ruudukko[rivi][sarake].getArvo();
         } else {
@@ -233,7 +233,7 @@ public class Pelialue {
      * @param sarake sarake josta haetaan
      * @return ruutu tai null jos haetaan taulukon ulkopuolelta
      */
-    public Ruutu ruutu(int rivi, int sarake) {
+    public Ruutu getRuutu(int rivi, int sarake) {
         if (!tarkistaIndeksi(rivi) && !tarkistaIndeksi(sarake)) {
             return ruudukko[rivi][sarake];
         } else {

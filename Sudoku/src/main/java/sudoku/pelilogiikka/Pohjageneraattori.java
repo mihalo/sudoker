@@ -45,7 +45,7 @@ public class Pohjageneraattori {
         Ruutu[][] ratkaisu = new Ruutu[9][9];
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                ratkaisu[i][j] = new Ruutu(p.numero(i, j), i, j);
+                ratkaisu[i][j] = new Ruutu(p.getNumero(i, j), i, j);
             }
         }
         p.setRatkaistuRuudukko(ratkaisu);
@@ -61,7 +61,7 @@ public class Pohjageneraattori {
             while (i < 81 - vaikeustaso) {
                 Collections.shuffle(vapaatPaikat);
                 int[] paikka = vapaatPaikat.get(0);
-                int paikanArvo = p.numero(paikka[0], paikka[1]);
+                int paikanArvo = p.getNumero(paikka[0], paikka[1]);
                 p.tyhjennaRuutu(paikka[0], paikka[1]);
                 ratkaisija();
                 if (maara > 1) {
@@ -91,7 +91,7 @@ public class Pohjageneraattori {
         while (ok) {
             boolean kierros = true;
             for (int[] paikka : vapaatPaikat) {
-                int arvo = p.numero(paikka[0], paikka[1]);
+                int arvo = p.getNumero(paikka[0], paikka[1]);
                 p.tyhjennaRuutu(paikka[0], paikka[1]);
                 ratkaisija();
                 if (maara == 1) {
@@ -125,7 +125,7 @@ public class Pohjageneraattori {
         if (rivi == raja) {
             return;
         }
-        if (!p.ruutu(rivi, sarake).vapaa()) {
+        if (!p.getRuutu(rivi, sarake).vapaa()) {
             taytaRuudukko(sarake == 8 ? (rivi + 1) : rivi, (sarake + 1) % 9, raja);
         } else {
             ArrayList<Integer> kaytettavat = tarkastaja.kaytettavatNumerot(p, rivi, sarake);
@@ -151,7 +151,7 @@ public class Pohjageneraattori {
             maara++;
             return;
         }
-        if (!p.ruutu(rivi, sarake).vapaa()) {
+        if (!p.getRuutu(rivi, sarake).vapaa()) {
             ratkaise(sarake == 8 ? (rivi + 1) : rivi, (sarake + 1) % 9);
         } else {
             ArrayList<Integer> kaytettavat = tarkastaja.kaytettavatNumerot(p, rivi, sarake);

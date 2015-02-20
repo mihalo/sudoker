@@ -51,7 +51,7 @@ public class PelialueTest {
         for (int rivi = 0; rivi < 9; rivi++) {
             for (int sarake = 0; sarake < 9; sarake++) {
                 k.tyhjennaRuutu(rivi, sarake);
-                assertEquals(true, k.ruutu(rivi, sarake).vapaa());
+                assertEquals(true, k.getRuutu(rivi, sarake).vapaa());
             }
         }
         k.tyhjennaRuutu(99, 123);
@@ -169,16 +169,16 @@ public class PelialueTest {
     public void palauttaaOikeanNumeron() {
         Pelialue k = new Pelialue();
         k.asetaNumero(3, 3, 7);
-        assertEquals(7, k.numero(3, 3));
-        assertEquals(-1, k.numero(99,99));
+        assertEquals(7, k.getNumero(3, 3));
+        assertEquals(-1, k.getNumero(99,99));
     }
     
     @Test
     public void palauttaaOikeanRuudun() {
         Pelialue k = new Pelialue();
         k.asetaNumero(3, 3, 8);
-        assertEquals(8, k.ruutu(3, 3).getArvo());
-        assertEquals(null, k.ruutu(99, 99));
+        assertEquals(8, k.getRuutu(3, 3).getArvo());
+        assertEquals(null, k.getRuutu(99, 99));
     }
     
     @Test
