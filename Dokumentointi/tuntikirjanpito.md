@@ -12,4 +12,8 @@
 | 30.01.2014 | 4 | Pohjageneraattorin kanssa taistelua |
 | 02.02.2014 | 1 | Käyttöliittymään pieniä muutoksia |
 | 12.02.2014 | 2 | JavaDocs aloitettu |
+| 14.02.2014 | 2 | Pientä korjailua vähän kaikkeen |
+| 17.02.2014 | 2 | JavaDocs lisäilyä/korjailua |
+| 19.02.2014 | 2 | kaavioiden piirtelyä yms |
+| 20.02.2014 | 2 | mm. uuden pelin korjaus, siten ettei vanha ikkuna jää taakse näkyviin |
 
