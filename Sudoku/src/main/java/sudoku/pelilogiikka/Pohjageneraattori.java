@@ -21,6 +21,10 @@ public class Pohjageneraattori {
     public Pohjageneraattori(int vaikeustaso) {
         vaikeustaso(vaikeustaso);
     }
+    
+    public Pohjageneraattori() {
+        
+    }
 
     private void vaikeustaso(int vaikeustaso) {
         if (vaikeustaso == 1) {
@@ -121,7 +125,7 @@ public class Pohjageneraattori {
         return this.p;
     }
 
-    private void taytaRuudukko(int rivi, int sarake, int raja) {
+    public void taytaRuudukko(int rivi, int sarake, int raja) {
         if (rivi == raja) {
             return;
         }
@@ -166,5 +170,11 @@ public class Pohjageneraattori {
     public int getMaara() {
         return maara;
     }
+
+    public void setPelialue(Pelialue p) {
+        this.p = p;
+    }
+
+    
 
 }

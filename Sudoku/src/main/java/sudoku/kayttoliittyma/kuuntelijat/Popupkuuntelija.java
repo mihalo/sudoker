@@ -36,11 +36,15 @@ public class Popupkuuntelija implements ActionListener {
         JButton button = (JButton) popup.getInvoker();
 
         int[] kordinaatit = kordinaatit(button);
-        ruudut[kordinaatit[0]][kordinaatit[1]].setText(c.getText());
-        pelialue.asetaNumero(kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
+        String teksti = c.getText();
+        ruudut[kordinaatit[0]][kordinaatit[1]].setText(teksti);
+        if (teksti.equals(" ")) {
+            teksti = "" + 0;
+        }
+        pelialue.asetaNumero(kordinaatit[0], kordinaatit[1], Integer.parseInt(teksti));
         ArrayList<Ruutu> vaarat = new ArrayList();
-        if (pelialue.getRatkaisu(kordinaatit[0], kordinaatit[1]) != Integer.parseInt(c.getText()) && Integer.parseInt(c.getText()) != 0) {
-            vaarat = tarkastaja.tarkistaSiirto(pelialue, kordinaatit[0], kordinaatit[1], Integer.parseInt(c.getText()));
+        if (pelialue.getRatkaisu(kordinaatit[0], kordinaatit[1]) != Integer.parseInt(teksti) && Integer.parseInt(teksti) != 0) {
+            vaarat = tarkastaja.tarkistaSiirto(pelialue, kordinaatit[0], kordinaatit[1], Integer.parseInt(teksti));
         }
         pelikenttakuuntelija.paivita(ruudut, pelialue, vaarat);
 

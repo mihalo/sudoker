@@ -48,7 +48,10 @@ public class Pelikenttakuuntelija implements MouseListener {
     private void luoPopupMenu() {
         popup = new JPopupMenu("Menu");
         popupkuuntelija = new Popupkuuntelija(kali, ruudut, pelialue, this);
-        for (int i = 0; i < 10; i++) {
+        JMenuItem tyhja = new JMenuItem(" ");
+        popup.add(tyhja);
+        tyhja.addActionListener(popupkuuntelija);
+        for (int i = 1; i < 10; i++) {
             JMenuItem b = new JMenuItem("" + i);
             popup.add(b);
             b.addActionListener(popupkuuntelija);
@@ -118,7 +121,6 @@ public class Pelikenttakuuntelija implements MouseListener {
         this.pelialue = p;
         if (!vaarat.isEmpty()) {
             for (Ruutu v : vaarat) {
-                System.out.println(v);
                 ruudut[v.getRivi()][v.getSarake()].setBackground(Color.red);
             }
         } else {
