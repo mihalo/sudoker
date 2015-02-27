@@ -9,7 +9,7 @@ import sudoku.kayttoliittyma.kuuntelijat.AloitusnakymanKuuntelija;
 
 /**
  * Aloitusnäkymä luokka, joka luo näytölle aloitusnäkymän. 
- * Aloitusnäkymässä voi aloittaa uuden pelin sekä valita vaikeustason.
+ * Aloitusnäkymässä voi aloittaa uuden pelin valitsemalla vaikeustason.
  */
 public class AloitusNakyma implements Runnable {
 

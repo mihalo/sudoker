@@ -104,7 +104,8 @@ public class Pelialue {
     }
 
     /**
-     * Metodi palauttaa halutun rivin numerot TreeSetissä.
+     * Metodi palauttaa halutun rivin numerot TreeSetissä, 
+     * jotta on helppo tarkastaa esimerkiksi montako erilaista numeroa rivillä on.
      * @param rivi haluttu rivi
      * @return rivin numerot
      */

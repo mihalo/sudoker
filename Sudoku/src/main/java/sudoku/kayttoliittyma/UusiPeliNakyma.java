@@ -17,7 +17,8 @@ import sudoku.pelilogiikka.Pelialue;
 import sudoku.pelilogiikka.Pohjageneraattori;
 
 /**
- * Graafisen käyttöliittymän pelinäkymä luokka, joka luo näytölle pelialuuen sekä valikon.
+ * Graafisen käyttöliittymän pelinäkymä luokka, joka luo näytölle pelialuuen
+ * sekä valikon.
  */
 public class UusiPeliNakyma implements Runnable {
 
@@ -58,10 +59,7 @@ public class UusiPeliNakyma implements Runnable {
         this.pelialue = pohjageneraattori.getPelialue();
     }
 
-    private Component luoPelikentta() {
-        JPanel paneeli = new JPanel();
-        ruudut = new JButton[9][9];
- 
+    private void asetaArvot() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (pelialue.getRuudukko()[i][j].vapaa()) {
@@ -75,16 +73,23 @@ public class UusiPeliNakyma implements Runnable {
                 }
             }
         }
+    }
 
+    private void lisaaOsarivit(JPanel paneeli) {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j += 3) {
                 paneeli.add(osaRivi(i, j));
             }
         }
+    }
 
+    private Component luoPelikentta() {
+        JPanel paneeli = new JPanel();
+        ruudut = new JButton[9][9];
+        asetaArvot();
+        lisaaOsarivit(paneeli);
         paneeli.add(luoValikko());
         lisaaKuuntelija(new Pelikenttakuuntelija(kali, ruudut, pelialue, tyhjenna, ratkaise, uusiPeli, vihje));
-
         return paneeli;
     }
 
