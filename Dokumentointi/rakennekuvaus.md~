@@ -1,4 +1,4 @@
-Pelin alussa käyttäjä valitsee vaikeustason, jonka jälkeen käyttäjä pyrkii täyttämään koko pelialueen siten, että jokainen numero esiintyy vain kerran yhdessä sarakkeessa, rivissä tai osaruduukossa. 
+Pelilogiikka koostuu neljästä eri luokasta. Ne ovat pelialue, pohjageneraattori, ruutu sekä tarkastaja. Pelialue sisältää 9 * 9 ruutua, joilla on oma sijainti sekä arvo. Pohjageneraattori luo pelialueelle ratkaistun ruudukon sekä itse pelipohjan. Tarkastaja luokalla tarkastetaan ruudukon oikeellisuus.
 
 Jos käyttäjä tekee pelissä virheen eli asettaa väärän numeron väärään kohtaan niin värjäytyy se numero punaiseksi sekä myös kaikki muut samat numerot, jotka ovat joko samalla rivillä, samassa sarakkeessa tai samassa osaruudukosta. Ruudun voi tyhjentää valitsemalla tyhjän vaihtoehdon.
 
